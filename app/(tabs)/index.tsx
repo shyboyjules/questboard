@@ -11,40 +11,41 @@ export default function HomeScreen() {
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+          source={require('@/assets/images/tavern.png')}
+          style={styles.tavern}
         />
-      }>
+      }
+    >
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
+        <ThemedText type="title">Welcome to Quest Board!</ThemedText>
+        
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
+
+      
+      <ThemedView style={styles.stepsWrapper}>
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText type="subtitle">Step 1: Make Your Quest</ThemedText>
+          <ThemedText>
+            <ThemedText type="defaultSemiBold">
+              {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
+            </ThemedText>{' '}
+            Make any Quest that you like
+          </ThemedText>
+        </ThemedView>
+
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText type="subtitle">Step 2: Finish your Quest that you Made</ThemedText>
+          <ThemedText>
+            Finish the Quest you made kay wala pa ang official app
+          </ThemedText>
+        </ThemedView>
+
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText type="subtitle">Step 3: Enjoy the App(beta)</ThemedText>
+          <ThemedText>
+            Pag wait kay wala pa nabuhat ang official app
+          </ThemedText>
+        </ThemedView>
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -56,15 +57,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
   },
+  stepsWrapper: {
+    backgroundColor: 'gray',
+    borderRadius: 10,
+    padding: 7,
+    marginTop: 10,
+  },
   stepContainer: {
     gap: 8,
     marginBottom: 8,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
+  tavern: {
+    resizeMode: 'cover',
+    width: '100%',
     bottom: 0,
     left: 0,
-    position: 'absolute',
+    position: 'static',
   },
 });
