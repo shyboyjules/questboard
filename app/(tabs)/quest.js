@@ -8,7 +8,6 @@ const QuestScreen = () => {
   const [editMode, setEditMode] = useState(false); 
   const [editQuestId, setEditQuestId] = useState(null); 
 
-  
   const handleAddOrEditQuest = () => {
     if (questTitle.trim()) {
       if (editMode) {
@@ -18,20 +17,28 @@ const QuestScreen = () => {
         setEditMode(false);
         setEditQuestId(null);
       } else {
-        setQuestList([...questList, {
+        const newQuest = {
           id: Date.now().toString(),
           title: questTitle,
           description: questDescription, 
           fadeAnim: new Animated.Value(1),
+          scaleAnim: new Animated.Value(0.8), 
           minimized: true
-        }]);
+        };
+        setQuestList([...questList, newQuest]);
+
+        
+        Animated.spring(newQuest.scaleAnim, {
+          toValue: 1, 
+          friction: 5, 
+          useNativeDriver: true,
+        }).start();
       }
       setQuestTitle(""); 
       setQuestDescription(""); 
     }
   };
 
-  
   const handleDeleteQuest = (id) => {
     const questToAnimate = questList.find((quest) => quest.id === id);
     if (questToAnimate) {
@@ -47,14 +54,12 @@ const QuestScreen = () => {
     }
   };
 
-  
   const handleToggleQuest = (id) => {
     setQuestList(questList.map((item) => 
       item.id === id ? { ...item, minimized: !item.minimized } : item
     ));
   };
 
-  
   const handleEditQuest = (item) => {
     setQuestTitle(item.title);
     setQuestDescription(item.description); 
@@ -62,7 +67,6 @@ const QuestScreen = () => {
     setEditQuestId(item.id);
   };
 
-  
   const renderQuest = ({ item }) => {
     return (
       <Animated.View
@@ -75,11 +79,11 @@ const QuestScreen = () => {
           flexDirection: 'row', 
           alignItems: 'center', 
           justifyContent: 'space-between', 
-          opacity: item.fadeAnim, 
+          opacity: item.fadeAnim,
+          transform: [{ scale: item.scaleAnim }], 
         }}
       >
         <TouchableOpacity style={{ flex: 1 }} onPress={() => handleToggleQuest(item.id)}>
-          
           {item.minimized ? (
             <Text style={{ color: 'white', fontWeight: 'bold' }}>{item.title}</Text>
           ) : (
@@ -119,7 +123,6 @@ const QuestScreen = () => {
         onChangeText={(userText) => setQuestTitle(userText)}
       />
 
-      
       <TextInput
         style={{
           borderWidth: 2,
@@ -157,7 +160,6 @@ const QuestScreen = () => {
         </Text>
       </TouchableOpacity>
 
-      
       <FlatList
         data={questList} 
         renderItem={renderQuest}
