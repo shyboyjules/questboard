@@ -1,4 +1,4 @@
-import { StyleSheet, View, TextInput, TouchableOpacity, FlatList, Text, ImageBackground, Animated, Easing } from 'react-native';
+import { StyleSheet, View, TextInput, TouchableOpacity, FlatList, Text, Animated, Easing } from 'react-native';
 import React, { useState } from 'react'; 
 
 const QuestScreen = () => {
