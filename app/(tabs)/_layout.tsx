@@ -33,13 +33,13 @@ export default function TabLayout() {
             <Image
               source={
                 focused
-                  ? require('@/assets/images/scroll.png') // Active state image
-                  : require('@/assets/images/scroll.png') // Inactive state image (could be a different one if needed)
+                  ? require('@/assets/images/scroll.png') 
+                  : require('@/assets/images/scroll.png') 
               }
               style={{
-                width: 24, // Set your desired width
-                height: 24, // Set your desired height
-                tintColor: color, // Use the color provided to match the theme
+                width: 24, 
+                height: 24, 
+                tintColor: color, 
               }}
             />
           ),

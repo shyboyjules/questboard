@@ -1,6 +1,5 @@
 import { Image, StyleSheet, Platform } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -36,14 +35,14 @@ export default function HomeScreen() {
         <ThemedView style={styles.stepContainer}>
           <ThemedText type="subtitle">Step 2: Finish your Quest that you Made</ThemedText>
           <ThemedText>
-            Finish the Quest you made kay wala pa ang official app
+            Finish the Quest you made kay wala pa ang official app na lahi mag buhat og quest
           </ThemedText>
         </ThemedView>
 
         <ThemedView style={styles.stepContainer}>
           <ThemedText type="subtitle">Step 3: Enjoy the App(beta)</ThemedText>
           <ThemedText>
-            Pag wait kay wala pa nabuhat ang official app
+            Quest Board is like a To Do App that allows you to make list that you want to do.
           </ThemedText>
         </ThemedView>
       </ThemedView>
@@ -58,7 +57,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   stepsWrapper: {
-    backgroundColor: 'gray',
+    backgroundColor: 'brown',
     borderRadius: 10,
     padding: 7,
     marginTop: 10,
